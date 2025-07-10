@@ -180,7 +180,7 @@ function scrollToSection(sectionId) {
 function openResume() {
     // Open resume PDF in new tab
     // Make sure to place your resume.pdf file in the same directory as your HTML file
-    const resumeUrl = 'assets/resume.pdf'; // Change this path to your actual resume file
+    const resumeUrl = 'docs/resume.pdf'; // Change this path to your actual resume file
     
     // Check if file exists before opening
     fetch(resumeUrl, { method: 'HEAD' })
