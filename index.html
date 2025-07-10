@@ -1,0 +1,417 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sakthivel D - Portfolio</title>
+    <meta name="description" content="Software Developer Portfolio - Passionate full-stack developer with expertise in Java, Go, Vue.js, and Flutter" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">SK</span>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active" data-section="home">HOME</a>
+                <a href="#experience" class="nav-link" data-section="experience">EXPERIENCE</a>
+                <a href="#skills" class="nav-link" data-section="skills">SKILLS</a>
+                <a href="#education" class="nav-link" data-section="education">EDUCATION</a>
+                <a href="#projects" class="nav-link" data-section="projects">PROJECTS</a>
+                <a href="#about" class="nav-link" data-section="about">ABOUT</a>
+                <a href="#contact" class="nav-link" data-section="contact">CONTACT ME</a>
+                <button class="resume-btn" onclick="openResume()">RESUME</button>
+            </div>
+
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-content fade-in">
+            <h1 class="hero-title">
+                Hello, I'm <span class="text-primary">Sakthivel D</span>
+            </h1>
+            <h2 class="hero-subtitle">Software Developer</h2>
+            <p class="hero-description">
+                Passionate full-stack developer with expertise in Java, Go, Vue.js, and Flutter. 
+                Solved 200+ problems on LeetCode and developed scalable web applications with modern technologies.
+            </p>
+            <div class="hero-buttons">
+                <button onclick="scrollToSection('contact')" class="btn btn-primary">
+                    Get In Touch
+                </button>
+                <!-- <button onclick="scrollToSection('about')" class="btn btn-secondary">
+                    Learn More
+                </button>
+                <button onclick="openResume()" class="btn btn-resume">
+                    Download Resume
+                </button> -->
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="chevron-down bounce"></div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Software Developer Executive</h3>
+                        <h4>FLATTRADE</h4>
+                        <span class="timeline-date">Dec 2024 - May 2025 (6 Months) | Chennai, India</span>
+                        <ul class="experience-list">
+                            <li>Developed and optimized 3+ internal tools using Go APIs and automated email schedulers, resulting in a 30% reduction in manual operations and improved client reporting efficiency.</li>
+                            <li>Developed scalable backend services using Go, improving response times by 40% through clean architecture and optimized queries.</li>
+                            <li>Built interactive user interfaces using Vue.js and mobile modules with Flutter.</li>
+                            <li>Collaborated with cross-functional teams to debug issues, refactor code, and improve UI responsiveness.</li>
+                            <li>Followed Git-based workflows and maintained structured commit practices.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category animate-on-scroll">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-tags">
+                        <div class="skill-tag-enhanced" style="background: linear-gradient(135deg, #f8982020, #f8982010)">
+                            <span class="skill-icon">☕</span>
+                            <span class="skill-name">Java</span>
+                        </div>
+                        <div class="skill-tag-enhanced" style="background: linear-gradient(135deg, #00ADD820, #00ADD810)">
+                            <span class="skill-icon">🐹</span>
+                            <span class="skill-name">Go</span>
+                        </div>
+                        <div class="skill-tag-enhanced" style="background: linear-gradient(135deg, #F7DF1E20, #F7DF1E10)">
+                            <span class="skill-icon">🟨</span>
+                            <span class="skill-name">JavaScript</span>
+                        </div>
+                        <div class="skill-tag-enhanced" style="background: linear-gradient(135deg, #E34F2620, #E34F2610)">
+                            <span class="skill-icon">🌐</span>
+                            <span class="skill-name">HTML5</span>
+                        </div>
+                        <div class="skill-tag-enhanced" style="background: linear-gradient(135deg, #1572B620, #1572B610)">
+                            <span class="skill-icon">🎨</span>
+                            <span class="skill-name">CSS3</span>
+                        </div>
+                        <div class="skill-tag-enhanced" style="background: linear-gradient(135deg, #33679120, #33679110)">
+                            <span class="skill-icon">🗄️</span>
+                            <span class="skill-name">SQL</span>
+                        </div>
+                        <div class="skill-tag-enhanced" style="background: linear-gradient(135deg, #0175C220, #0175C210)">
+                            <span class="skill-icon">🎯</span>
+                            <span class="skill-name">Dart</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category animate-on-scroll">
+                    <h3>Frameworks & Libraries</h3>
+                    <div class="skill-tags">
+                        <div class="skill-tag-enhanced" style="background: linear-gradient(135deg, #4FC08D20, #4FC08D10)">
+                            <span class="skill-icon">💚</span>
+                            <span class="skill-name">Vue.js</span>
+                        </div>
+                        <div class="skill-tag-enhanced" style="background: linear-gradient(135deg, #1867C020, #1867C010)">
+                            <span class="skill-icon">🔷</span>
+                            <span class="skill-name">Vuetify</span>
+                        </div>
+                        <div class="skill-tag-enhanced" style="background: linear-gradient(135deg, #02569B20, #02569B10)">
+                            <span class="skill-icon">🦋</span>
+                            <span class="skill-name">Flutter</span>
+                        </div>
+                        <div class="skill-tag-enhanced" style="background: linear-gradient(135deg, #6DB33F20, #6DB33F10)">
+                            <span class="skill-icon">🍃</span>
+                            <span class="skill-name">Spring Boot</span>
+                        </div>
+                        <div class="skill-tag-enhanced" style="background: linear-gradient(135deg, #7952B320, #7952B310)">
+                            <span class="skill-icon">🅱️</span>
+                            <span class="skill-name">Bootstrap</span>
+                        </div>
+                        <div class="skill-tag-enhanced" style="background: linear-gradient(135deg, #FF6B6B20, #FF6B6B10)">
+                            <span class="skill-icon">🔗</span>
+                            <span class="skill-name">REST APIs</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category animate-on-scroll">
+                    <h3>Tools & Technologies</h3>
+                    <div class="skill-tags">
+                        <div class="skill-tag-enhanced" style="background: linear-gradient(135deg, #18171720, #18171710)">
+                            <span class="skill-icon">🐙</span>
+                            <span class="skill-name">Git & GitHub</span>
+                        </div>
+                        <div class="skill-tag-enhanced" style="background: linear-gradient(135deg, #007ACC20, #007ACC10)">
+                            <span class="skill-icon">💻</span>
+                            <span class="skill-name">VS Code</span>
+                        </div>
+                        <div class="skill-tag-enhanced" style="background: linear-gradient(135deg, #2C225520, #2C225510)">
+                            <span class="skill-icon">🌑</span>
+                            <span class="skill-name">Eclipse</span>
+                        </div>
+                        <div class="skill-tag-enhanced" style="background: linear-gradient(135deg, #FF6C3720, #FF6C3710)">
+                            <span class="skill-icon">📮</span>
+                            <span class="skill-name">Postman</span>
+                        </div>
+                        <div class="skill-tag-enhanced" style="background: linear-gradient(135deg, #4479A120, #4479A110)">
+                            <span class="skill-icon">🐬</span>
+                            <span class="skill-name">MySQL</span>
+                        </div>
+                        <div class="skill-tag-enhanced" style="background: linear-gradient(135deg, #6DB33F20, #6DB33F10)">
+                            <span class="skill-icon">🔧</span>
+                            <span class="skill-name">Spring Tool Suite</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Education</h2>
+            
+            <!-- Education Subsection -->
+            <div class="education-subsection">
+                <h3 class="subsection-title animate-on-scroll">Academic Background</h3>
+                <div class="education-grid">
+                    <div class="education-card animate-on-scroll">
+                        <h4>B.sc in Computer Science</h4>
+                        <h5>KK GOVT. ARTS & SCIENCE COLLEGE</h5>
+                        <span class="education-date">2021 - 2024 | CGPA 7.5 / 10</span>
+                        <p>Comprehensive study of computer science fundamentals, programming languages, and software development practices.</p>
+                    </div>
+                    <div class="education-card animate-on-scroll">
+                        <h4>HSC - Computer Science</h4>
+                        <h5>GOVT. HR SEC SCHOOL</h5>
+                        <span class="education-date">2019 - 2021 | Cum Per : 82.25</span>
+                        <p>Higher secondary education with focus on computer science and mathematics.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Achievements & Profiles Section -->
+            <div class="achievements-subsection">
+                <h3 class="subsection-title animate-on-scroll">Achievements & Profiles</h3>
+                <div class="achievements-grid">
+                    <div class="achievement-card animate-on-scroll">
+                        <div class="achievement-icon">
+                            <div class="icon-code">💻</div>
+                        </div>
+                        <h4>LeetCode Profile</h4>
+                        <p>Solved 200+ Problems</p>
+                        <a href="#" class="achievement-link">
+                            <span class="external-link">🔗</span>
+                            Visit Profile
+                        </a>
+                    </div>
+                    <div class="achievement-card animate-on-scroll">
+                        <div class="achievement-icon">
+                            <div class="icon-database">🗄️</div>
+                        </div>
+                        <h4>HackerRank Profile</h4>
+                        <p>Competitive Programming</p>
+                        <a href="#" class="achievement-link">
+                            <span class="external-link">🔗</span>
+                            Visit Profile
+                        </a>
+                    </div>
+                    <div class="achievement-card animate-on-scroll">
+                        <div class="achievement-icon">
+                            <div class="icon-award">🏆</div>
+                        </div>
+                        <h4>Code Ninja Profile</h4>
+                        <p>Coding Challenges</p>
+                        <a href="#" class="achievement-link">
+                            <span class="external-link">🔗</span>
+                            Visit Profile
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coursework Section -->
+            <div class="coursework-subsection">
+                <h3 class="subsection-title animate-on-scroll">Coursework</h3>
+                <div class="coursework-card animate-on-scroll">
+                    <h4>Java FullStack Development</h4>
+                    <p>SLA, Chennai | Sep 2024 - Jan 2025</p>
+                    <div class="coursework-details">
+                        <span class="coursework-tag">Java (basics)</span>
+                        <span class="coursework-tag">Java Fundamentals</span>
+                        <span class="coursework-tag">Full Stack Development</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card animate-on-scroll">
+                    <h3>Online Food Delivery and Restaurant Management System</h3>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">Spring Boot</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">Thymeleaf</span>
+                    </div>
+                    <ul class="project-features">
+                        <li>Designed a full-stack web application enabling restaurant owners to register and manage menus with a one-to-many relationship between restaurants and food items.</li>
+                        <li>Developed secure role-based authentication for Admins, Restaurant Owners, and Users using Spring Security and JPA for entity management.</li>
+                        <li>Implemented dynamic and responsive user interfaces using Thymeleaf templates for restaurant listing, cart functionality, and admin dashboard.</li>
+                    </ul>
+                </div>
+                <div class="project-card animate-on-scroll">
+                    <h3>Car Rental System (Console-Based Application)</h3>
+                    <div class="project-tech">
+                        <span class="tech-tag">Java (OOPs)</span>
+                        <span class="tech-tag">JDBC API</span>
+                        <span class="tech-tag">MySQL</span>
+                    </div>
+                    <ul class="project-features">
+                        <li>Built a console-based car rental system in Java using JDBC, applying key Object-Oriented Programming principles such as inheritance, encapsulation, and abstraction.</li>
+                        <li>Implemented functionality for users to rent, return, and manage cars, while admins can perform CRUD operations on the car inventory and manage admin accounts.</li>
+                        <li>Integrated a booking history tracker that logs rentals with timestamps and user details, enhancing transparency and traceability.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">About Me</h2>
+            <div class="about-content">
+                <div class="about-text animate-on-scroll">
+                    <p>
+                        I'm a passionate software developer with hands-on experience in full-stack development using modern technologies like Java, Go, Vue.js, and Flutter. I thrive on solving complex problems and have successfully solved over 200 problems on LeetCode.
+                    </p>
+                    <p>
+                        My experience at FLATTRADE has given me valuable insights into developing scalable backend services, optimizing database queries, and building responsive user interfaces. I'm always eager to learn new technologies and contribute to innovative projects.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">200+</span>
+                            <span class="stat-label">LeetCode Problems</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">6+</span>
+                            <span class="stat-label">Months Experience</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-label">Projects Completed</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image animate-on-scroll">
+                    <div class="image-placeholder">
+                        <span>Profile Image</span>
+                        <p class="image-note">Image will be added soon</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Contact Me</h2>
+            <div class="contact-content">
+                <div class="contact-info animate-on-scroll">
+                    <h3>Let's work together</h3>
+                    <p>
+                        I'm always interested in hearing about new opportunities and projects. 
+                        Whether you're looking for a developer, have a question, or just want to connect.
+                    </p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <span class="contact-icon">📧</span>
+                            <span>sakthiveld479@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📱</span>
+                            <span>+91 9047684797</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📍</span>
+                            <span>Chennai, India</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <span class="social-icon">🐙</span>
+                        </a>
+                        <a href="#" class="social-link">
+                            <span class="social-icon">💼</span>
+                        </a>
+                        <a href="#" class="social-link">
+                            <span class="social-icon">🌐</span>
+                        </a>
+                    </div>
+                </div>
+                <form class="contact-form animate-on-scroll">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" class="form-input" />
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" class="form-input" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Subject" class="form-input" />
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Your Message" rows="5" class="form-input form-textarea"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Sakthivel D. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
