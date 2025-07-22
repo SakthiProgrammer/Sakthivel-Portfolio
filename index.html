@@ -1,16 +1,21 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sakthivel D - Portfolio</title>
-    <meta name="description" content="Software Developer Portfolio - Passionate full-stack developer with expertise in Java, Go, Vue.js, and Flutter" />
+    <meta name="description"
+        content="Software Developer Portfolio - Passionate full-stack developer with expertise in Java, Go, Vue.js, and Flutter" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar">
@@ -18,7 +23,7 @@
             <div class="nav-logo">
                 <span class="logo-text">SK</span>
             </div>
-            
+
             <div class="nav-menu" id="navMenu">
                 <a href="#home" class="nav-link active" data-section="home">HOME</a>
                 <a href="#experience" class="nav-link" data-section="experience">EXPERIENCE</a>
@@ -40,27 +45,35 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero-section">
-        <div class="hero-content fade-in">
-            <h1 class="hero-title">
-                Hello, I'm <span class="text-primary">Sakthivel D</span>
-            </h1>
-            <h2 class="hero-subtitle">Software Developer</h2>
-            <p class="hero-description">
-                Passionate full-stack developer with expertise in Java, Go, Vue.js, and Flutter. 
-                Solved 200+ problems on LeetCode and developed scalable web applications with modern technologies.
-            </p>
-            <div class="hero-buttons">
-                <button onclick="scrollToSection('contact')" class="btn btn-primary">
-                    Get In Touch
-                </button>
-                <!-- <button onclick="scrollToSection('about')" class="btn btn-secondary">
-                    Learn More
-                </button>
-                <button onclick="openResume()" class="btn btn-resume">
-                    Download Resume
-                </button> -->
+        <div class="hero-container">
+            <div class="hero-content fade-in">
+                <h1 class="hero-title">
+                    Hello, I'm <span class="text-primary">Sakthivel D</span>
+                </h1>
+                <h2 class="hero-subtitle">Software Developer</h2>
+                <p class="hero-description">
+                    I’m a Passionate Software Developer, Problem Solver, and Tech Enthusiast.
+                </p>
+
+                <p class="hero-description">
+                    I specialize in Java, Go, Vue.js, and Flutter, building scalable and modern applications that solve real-world challenges. As a full-stack developer, I’m passionate about writing clean, efficient, and user-focused solutions across web and mobile platforms. I’ve solved 200+ problems on LeetCode, sharpening my problem-solving skills, and I’m always eager to explore new technologies and frameworks. My mission is to transform ideas into powerful, reliable software that makes a real impact
+                </p>
+            </div>
+
+            <!-- Animated Profile Image -->
+            <div class="hero-image-container">
+                <div class="hero-image-wrapper">
+                    <div class="hero-image-glow"></div>
+                    <div class="hero-image-frame">
+                        <img src="docs/image2.png" alt="Sakthivel D - Professional Photo" class="hero-image" />
+                    </div>
+                    <div class="hero-image-dot hero-image-dot-1"></div>
+                    <div class="hero-image-dot hero-image-dot-2"></div>
+                    <div class="hero-image-dot hero-image-dot-3"></div>
+                </div>
             </div>
         </div>
+
         <div class="scroll-indicator">
             <div class="chevron-down bounce"></div>
         </div>
@@ -78,10 +91,14 @@
                         <h4>FLATTRADE</h4>
                         <span class="timeline-date">Dec 2024 - May 2025 (6 Months) | Chennai, India</span>
                         <ul class="experience-list">
-                            <li>Developed and optimized 3+ internal tools using Go APIs and automated email schedulers, resulting in a 30% reduction in manual operations and improved client reporting efficiency.</li>
-                            <li>Developed scalable backend services using Go, improving response times by 40% through clean architecture and optimized queries.</li>
+                            <li>Developed and optimized 3+ internal tools using Go APIs and automated email schedulers,
+                                resulting in a 30% reduction in manual operations and improved client reporting
+                                efficiency.</li>
+                            <li>Developed scalable backend services using Go, improving response times by 40% through
+                                clean architecture and optimized queries.</li>
                             <li>Built interactive user interfaces using Vue.js and mobile modules with Flutter.</li>
-                            <li>Collaborated with cross-functional teams to debug issues, refactor code, and improve UI responsiveness.</li>
+                            <li>Collaborated with cross-functional teams to debug issues, refactor code, and improve UI
+                                responsiveness.</li>
                             <li>Followed Git-based workflows and maintained structured commit practices.</li>
                         </ul>
                     </div>
@@ -98,91 +115,110 @@
                 <div class="skill-category animate-on-scroll">
                     <h3>Programming Languages</h3>
                     <div class="skill-tags">
-                        <div class="skill-tag-enhanced" style="background: linear-gradient(135deg, #f8982020, #f8982010)">
+                        <div class="skill-tag-enhanced"
+                            style="background: linear-gradient(135deg, #f8982020, #f8982010)">
                             <span class="skill-icon">☕</span>
                             <span class="skill-name">Java</span>
                         </div>
-                        <div class="skill-tag-enhanced" style="background: linear-gradient(135deg, #00ADD820, #00ADD810)">
+                        <div class="skill-tag-enhanced"
+                            style="background: linear-gradient(135deg, #00ADD820, #00ADD810)">
                             <span class="skill-icon">🐹</span>
                             <span class="skill-name">Go</span>
                         </div>
-                        <div class="skill-tag-enhanced" style="background: linear-gradient(135deg, #F7DF1E20, #F7DF1E10)">
+                        <div class="skill-tag-enhanced"
+                            style="background: linear-gradient(135deg, #F7DF1E20, #F7DF1E10)">
                             <span class="skill-icon">🟨</span>
                             <span class="skill-name">JavaScript</span>
                         </div>
-                        <div class="skill-tag-enhanced" style="background: linear-gradient(135deg, #E34F2620, #E34F2610)">
+                        <div class="skill-tag-enhanced"
+                            style="background: linear-gradient(135deg, #E34F2620, #E34F2610)">
                             <span class="skill-icon">🌐</span>
                             <span class="skill-name">HTML5</span>
                         </div>
-                        <div class="skill-tag-enhanced" style="background: linear-gradient(135deg, #1572B620, #1572B610)">
+                        <div class="skill-tag-enhanced"
+                            style="background: linear-gradient(135deg, #1572B620, #1572B610)">
                             <span class="skill-icon">🎨</span>
                             <span class="skill-name">CSS3</span>
                         </div>
-                        <div class="skill-tag-enhanced" style="background: linear-gradient(135deg, #33679120, #33679110)">
+                        <div class="skill-tag-enhanced"
+                            style="background: linear-gradient(135deg, #33679120, #33679110)">
                             <span class="skill-icon">🗄️</span>
                             <span class="skill-name">SQL</span>
                         </div>
-                        <div class="skill-tag-enhanced" style="background: linear-gradient(135deg, #0175C220, #0175C210)">
+                        <div class="skill-tag-enhanced"
+                            style="background: linear-gradient(135deg, #0175C220, #0175C210)">
                             <span class="skill-icon">🎯</span>
                             <span class="skill-name">Dart</span>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="skill-category animate-on-scroll">
                     <h3>Frameworks & Libraries</h3>
                     <div class="skill-tags">
-                        <div class="skill-tag-enhanced" style="background: linear-gradient(135deg, #4FC08D20, #4FC08D10)">
+                        <div class="skill-tag-enhanced"
+                            style="background: linear-gradient(135deg, #4FC08D20, #4FC08D10)">
                             <span class="skill-icon">💚</span>
                             <span class="skill-name">Vue.js</span>
                         </div>
-                        <div class="skill-tag-enhanced" style="background: linear-gradient(135deg, #1867C020, #1867C010)">
+                        <div class="skill-tag-enhanced"
+                            style="background: linear-gradient(135deg, #1867C020, #1867C010)">
                             <span class="skill-icon">🔷</span>
                             <span class="skill-name">Vuetify</span>
                         </div>
-                        <div class="skill-tag-enhanced" style="background: linear-gradient(135deg, #02569B20, #02569B10)">
+                        <div class="skill-tag-enhanced"
+                            style="background: linear-gradient(135deg, #02569B20, #02569B10)">
                             <span class="skill-icon">🦋</span>
                             <span class="skill-name">Flutter</span>
                         </div>
-                        <div class="skill-tag-enhanced" style="background: linear-gradient(135deg, #6DB33F20, #6DB33F10)">
+                        <div class="skill-tag-enhanced"
+                            style="background: linear-gradient(135deg, #6DB33F20, #6DB33F10)">
                             <span class="skill-icon">🍃</span>
                             <span class="skill-name">Spring Boot</span>
                         </div>
-                        <div class="skill-tag-enhanced" style="background: linear-gradient(135deg, #7952B320, #7952B310)">
+                        <div class="skill-tag-enhanced"
+                            style="background: linear-gradient(135deg, #7952B320, #7952B310)">
                             <span class="skill-icon">🅱️</span>
                             <span class="skill-name">Bootstrap</span>
                         </div>
-                        <div class="skill-tag-enhanced" style="background: linear-gradient(135deg, #FF6B6B20, #FF6B6B10)">
+                        <div class="skill-tag-enhanced"
+                            style="background: linear-gradient(135deg, #FF6B6B20, #FF6B6B10)">
                             <span class="skill-icon">🔗</span>
                             <span class="skill-name">REST APIs</span>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="skill-category animate-on-scroll">
                     <h3>Tools & Technologies</h3>
                     <div class="skill-tags">
-                        <div class="skill-tag-enhanced" style="background: linear-gradient(135deg, #18171720, #18171710)">
+                        <div class="skill-tag-enhanced"
+                            style="background: linear-gradient(135deg, #18171720, #18171710)">
                             <span class="skill-icon">🐙</span>
                             <span class="skill-name">Git & GitHub</span>
                         </div>
-                        <div class="skill-tag-enhanced" style="background: linear-gradient(135deg, #007ACC20, #007ACC10)">
+                        <div class="skill-tag-enhanced"
+                            style="background: linear-gradient(135deg, #007ACC20, #007ACC10)">
                             <span class="skill-icon">💻</span>
                             <span class="skill-name">VS Code</span>
                         </div>
-                        <div class="skill-tag-enhanced" style="background: linear-gradient(135deg, #2C225520, #2C225510)">
+                        <div class="skill-tag-enhanced"
+                            style="background: linear-gradient(135deg, #2C225520, #2C225510)">
                             <span class="skill-icon">🌑</span>
                             <span class="skill-name">Eclipse</span>
                         </div>
-                        <div class="skill-tag-enhanced" style="background: linear-gradient(135deg, #FF6C3720, #FF6C3710)">
+                        <div class="skill-tag-enhanced"
+                            style="background: linear-gradient(135deg, #FF6C3720, #FF6C3710)">
                             <span class="skill-icon">📮</span>
                             <span class="skill-name">Postman</span>
                         </div>
-                        <div class="skill-tag-enhanced" style="background: linear-gradient(135deg, #4479A120, #4479A110)">
+                        <div class="skill-tag-enhanced"
+                            style="background: linear-gradient(135deg, #4479A120, #4479A110)">
                             <span class="skill-icon">🐬</span>
                             <span class="skill-name">MySQL</span>
                         </div>
-                        <div class="skill-tag-enhanced" style="background: linear-gradient(135deg, #6DB33F20, #6DB33F10)">
+                        <div class="skill-tag-enhanced"
+                            style="background: linear-gradient(135deg, #6DB33F20, #6DB33F10)">
                             <span class="skill-icon">🔧</span>
                             <span class="skill-name">Spring Tool Suite</span>
                         </div>
@@ -196,7 +232,7 @@
     <section id="education" class="section">
         <div class="container">
             <h2 class="section-title animate-on-scroll">Education</h2>
-            
+
             <!-- Education Subsection -->
             <div class="education-subsection">
                 <h3 class="subsection-title animate-on-scroll">Academic Background</h3>
@@ -205,7 +241,8 @@
                         <h4>B.sc in Computer Science</h4>
                         <h5>KK GOVT. ARTS & SCIENCE COLLEGE</h5>
                         <span class="education-date">2021 - 2024 | CGPA 7.5 / 10</span>
-                        <p>Comprehensive study of computer science fundamentals, programming languages, and software development practices.</p>
+                        <p>Comprehensive study of computer science fundamentals, programming languages, and software
+                            development practices.</p>
                     </div>
                     <div class="education-card animate-on-scroll">
                         <h4>HSC - Computer Science</h4>
@@ -288,9 +325,12 @@
                         <span class="tech-tag">Thymeleaf</span>
                     </div>
                     <ul class="project-features">
-                        <li>Designed a full-stack web application enabling restaurant owners to register and manage menus with a one-to-many relationship between restaurants and food items.</li>
-                        <li>Developed secure role-based authentication for Admins, Restaurant Owners, and Users using Spring Security and JPA for entity management.</li>
-                        <li>Implemented dynamic and responsive user interfaces using Thymeleaf templates for restaurant listing, cart functionality, and admin dashboard.</li>
+                        <li>Designed a full-stack web application enabling restaurant owners to register and manage
+                            menus with a one-to-many relationship between restaurants and food items.</li>
+                        <li>Developed secure role-based authentication for Admins, Restaurant Owners, and Users using
+                            Spring Security and JPA for entity management.</li>
+                        <li>Implemented dynamic and responsive user interfaces using Thymeleaf templates for restaurant
+                            listing, cart functionality, and admin dashboard.</li>
                     </ul>
                 </div>
                 <div class="project-card animate-on-scroll">
@@ -301,9 +341,12 @@
                         <span class="tech-tag">MySQL</span>
                     </div>
                     <ul class="project-features">
-                        <li>Built a console-based car rental system in Java using JDBC, applying key Object-Oriented Programming principles such as inheritance, encapsulation, and abstraction.</li>
-                        <li>Implemented functionality for users to rent, return, and manage cars, while admins can perform CRUD operations on the car inventory and manage admin accounts.</li>
-                        <li>Integrated a booking history tracker that logs rentals with timestamps and user details, enhancing transparency and traceability.</li>
+                        <li>Built a console-based car rental system in Java using JDBC, applying key Object-Oriented
+                            Programming principles such as inheritance, encapsulation, and abstraction.</li>
+                        <li>Implemented functionality for users to rent, return, and manage cars, while admins can
+                            perform CRUD operations on the car inventory and manage admin accounts.</li>
+                        <li>Integrated a booking history tracker that logs rentals with timestamps and user details,
+                            enhancing transparency and traceability.</li>
                     </ul>
                 </div>
             </div>
@@ -317,10 +360,14 @@
             <div class="about-content">
                 <div class="about-text animate-on-scroll">
                     <p>
-                        I'm a passionate software developer with hands-on experience in full-stack development using modern technologies like Java, Go, Vue.js, and Flutter. I thrive on solving complex problems and have successfully solved over 200 problems on LeetCode.
+                        I'm a passionate software developer with hands-on experience in full-stack development using
+                        modern technologies like Java, Go, Vue.js, and Flutter. I thrive on solving complex problems and
+                        have successfully solved over 200 problems on LeetCode.
                     </p>
                     <p>
-                        My experience at FLATTRADE has given me valuable insights into developing scalable backend services, optimizing database queries, and building responsive user interfaces. I'm always eager to learn new technologies and contribute to innovative projects.
+                        My experience at FLATTRADE has given me valuable insights into developing scalable backend
+                        services, optimizing database queries, and building responsive user interfaces. I'm always eager
+                        to learn new technologies and contribute to innovative projects.
                     </p>
                     <div class="about-stats">
                         <div class="stat-item">
@@ -338,10 +385,13 @@
                     </div>
                 </div>
                 <div class="about-image animate-on-scroll">
-                    <div class="image-placeholder">
-                        <span>Profile Image</span>
-                        <p class="image-note">Image will be added soon</p>
-                    </div>
+                    <dotlottie-wc
+                    src="https://lottie.host/68601e16-9778-425f-883b-dd96750a963f/xT3EIZ8HdA.lottie"
+                    style="height: 300px;"
+                    speed="0.5"
+                    autoplay
+                    loop
+                    ></dotlottie-wc>
                 </div>
             </div>
         </div>
@@ -355,7 +405,7 @@
                 <div class="contact-info animate-on-scroll">
                     <h3>Let's work together</h3>
                     <p>
-                        I'm always interested in hearing about new opportunities and projects. 
+                        I'm always interested in hearing about new opportunities and projects.
                         Whether you're looking for a developer, have a question, or just want to connect.
                     </p>
                     <div class="contact-details">
@@ -413,5 +463,10 @@
     </footer>
 
     <script src="script.js"></script>
+    <script
+  src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js"
+  type="module"
+></script>
 </body>
+
 </html>

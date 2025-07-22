@@ -70,16 +70,22 @@ document.addEventListener('DOMContentLoaded', function() {
     elementsToAnimate.forEach(el => observer.observe(el));
 
     // Navbar background on scroll
-    window.addEventListener('scroll', function() {
+    // window.addEventListener('scroll', function() {
+    //     const navbar = document.querySelector('.navbar');
+    //     if (window.scrollY > 50) {
+    //         navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+    //         navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+    //     } else {
+    //         navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+    //         navbar.style.boxShadow = 'none';
+    //     }
+    // });
+
+    window.addEventListener('scroll', () => {
         const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-        } else {
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-            navbar.style.boxShadow = 'none';
-        }
+        navbar.classList.toggle('scrolled', window.scrollY > 50);
     });
+
 
     // Contact form submission
     const contactForm = document.querySelector('.contact-form');
@@ -136,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Typing effect for hero title (optional enhancement)
+     // Typing effect for hero title (optional enhancement)
     function typeWriter(element, text, speed = 100) {
         let i = 0;
         element.innerHTML = '';
@@ -162,6 +168,24 @@ document.addEventListener('DOMContentLoaded', function() {
         card.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(0) rotate(0deg)';
         });
+
+    });
+
+    // Image hover effects
+    const heroImage = document.querySelector('.hero-image');
+    const aboutImage = document.querySelector('.about-image-img');
+    const bottomImage = document.querySelector('.bottom-profile-image');
+
+    [heroImage, aboutImage, bottomImage].forEach(img => {
+        if (img) {
+            img.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.1) rotate(3deg)';
+            });
+            
+            img.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1) rotate(0deg)';
+            });
+        }
     });
 });
 
@@ -215,7 +239,7 @@ window.addEventListener('scroll', function() {
     const scrolled = window.pageYOffset;
     const heroContent = document.querySelector('.hero-content');
     if (heroContent) {
-        const rate = scrolled * -0.5;
+        const rate = scrolled * -0.1;
         heroContent.style.transform = `translateY(${rate}px)`;
     }
 });
@@ -267,3 +291,70 @@ function animateStats() {
 
 // Initialize stats animation
 document.addEventListener('DOMContentLoaded', animateStats);
+
+
+// Dynamic typing effect
+function typeWriter(element, text, speed = 100) {
+    let i = 0;
+    element.innerHTML = '';
+    
+    function type() {
+        if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        }
+    }
+    
+    type();
+}
+
+
+// Initialize typing effect on hero title
+// document.addEventListener('DOMContentLoaded', function() {
+//     const heroTitle = document.querySelector('.hero-title');
+//     if (heroTitle) {
+//         const originalText = heroTitle.innerHTML;
+//         setTimeout(() => {
+//             typeWriter(heroTitle, originalText, 50);
+//         }, 1000);
+//     }
+// });
+
+// Mouse tracking effect for hero image
+document.addEventListener('mousemove', function(e) {
+    const heroImage = document.querySelector('.hero-image-wrapper');
+    if (heroImage) {
+        const rect = heroImage.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        
+        const moveX = x * 0.01;
+        const moveY = y * 0.01;
+        
+        heroImage.style.transform = `translate(${moveX}px, ${moveY}px)`;
+    }
+});
+
+// Intersection Observer for image animations
+const imageObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0) scale(1)';
+        }
+    });
+}, {
+    threshold: 0.1
+});
+
+// Observe all images
+document.addEventListener('DOMContentLoaded', function() {
+    const images = document.querySelectorAll('.hero-image, .about-image-img, .bottom-profile-image');
+    images.forEach(img => {
+        img.style.opacity = '0';
+        img.style.transform = 'translateY(20px) scale(0.9)';
+        img.style.transition = 'all 0.8s ease-out';
+        imageObserver.observe(img);
+    });
+});
