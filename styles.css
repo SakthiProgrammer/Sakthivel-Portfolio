@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700;800&display=swap');
 
 :root {
-  --color-primary: #3D52A0;
-  --color-secondary: #7091E6;
-  --color-accent: #8697C4;
-  --color-light: #ADBBDA;
+  --color-primary: #4300FF;
+  --color-secondary: #0065F8;
+  --color-accent: #00CAFF;
+  --color-light: #00FFDE;
   --color-background: #EDE8F5;
   --font-family: 'Poppins', sans-serif;
 }
@@ -164,7 +164,8 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background: linear-gradient(135deg, var(--color-background) 0%, var(--color-light) 50%, var(--color-accent) 100%);
+  background: linear-gradient(135deg, var(--color-background) 4%, var(--color-light) 30%, var(--color-accent
+  ) 100%);
   /* text-align: center; */
   padding: 2rem;
   position: relative;
@@ -332,7 +333,7 @@ body {
 .hero-image-dot-1 {
   width: 12px;
   height: 12px;
-  background: #4ade80;
+  background:#ff0000;
   top: -10px;
   right: 20px;
   animation-delay: 0s;
@@ -341,7 +342,7 @@ body {
 .hero-image-dot-2 {
   width: 8px;
   height: 8px;
-  background: #fbbf24;
+  background: #fed700;
   bottom: 10px;
   left: -10px;
   animation-delay: 0.5s;
@@ -350,7 +351,7 @@ body {
 .hero-image-dot-3 {
   width: 10px;
   height: 10px;
-  background: #f87171;
+  background: #fe218b;
   top: 50px;
   left: -15px;
   animation-delay: 1s;
