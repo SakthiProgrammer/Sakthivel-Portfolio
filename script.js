@@ -88,47 +88,48 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // Contact form submission
-    const contactForm = document.querySelector('.contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+    // const contactForm = document.querySelector('.contact-form');
+    // if (contactForm) {
+    //     contactForm.addEventListener('submit', function(e) {
+    //         e.preventDefault();
             
-            // Get form data
-            const formData = new FormData(this);
-            const formEntries = Object.fromEntries(formData);
+    //         // Get form data
+    //         const formData = new FormData(this);
+    //         const formEntries = Object.fromEntries(formData);
             
-            // Simple form validation
-            const inputs = this.querySelectorAll('.form-input');
-            let isValid = true;
+    //         // Simple form validation
+    //         const inputs = this.querySelectorAll('.form-input');
+    //         let isValid = true;
             
-            inputs.forEach(input => {
-                if (!input.value.trim()) {
-                    isValid = false;
-                    input.style.borderColor = '#ff6b6b';
-                } else {
-                    input.style.borderColor = '#e1e5e9';
-                }
-            });
+    //         inputs.forEach(input => {
+    //             if (!input.value.trim()) {
+    //                 isValid = false;
+    //                 input.style.borderColor = '#ff6b6b';
+    //             } else {
+    //                 input.style.borderColor = '#e1e5e9';
+    //             }
+    //         });
             
-            if (isValid) {
-                // Simulate form submission
-                const submitBtn = this.querySelector('button[type="submit"]');
-                const originalText = submitBtn.textContent;
+    //         if (isValid) {
+    //             // Simulate form submission
+    //             const submitBtn = this.querySelector('button[type="submit"]');
+    //             const originalText = submitBtn.textContent;
                 
-                submitBtn.textContent = 'Sending...';
-                submitBtn.disabled = true;
+    //             submitBtn.textContent = 'Sending...';
+    //             submitBtn.disabled = true;
+    //             processMail(message)
                 
-                setTimeout(() => {
-                    alert('Thank you for your message! I\'ll get back to you soon.');
-                    this.reset();
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
-                }, 2000);
-            } else {
-                alert('Please fill in all fields.');
-            }
-        });
-    }
+    //             setTimeout(() => {
+    //                 alert('Thank you for your message! I\'ll get back to you soon.');
+    //                 this.reset();
+    //                 submitBtn.textContent = originalText;
+    //                 submitBtn.disabled = false;
+    //             }, 2000);
+    //         } else {
+    //             alert('Please fill in all fields.');
+    //         }
+    //     });
+    // }
 
     // Skill tags hover effect
     const skillTags = document.querySelectorAll('.skill-tag-enhanced');
@@ -358,3 +359,77 @@ document.addEventListener('DOMContentLoaded', function() {
         imageObserver.observe(img);
     });
 });
+
+
+
+document.querySelector(".contact-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const inputs = this.querySelectorAll(".form-input");
+  let isValid = true;
+
+  inputs.forEach((input) => {
+    if (!input.value.trim()) {
+      isValid = false;
+      input.style.borderColor = "#ff6b6b";
+    } else {
+      input.style.borderColor = "#e1e5e9";
+    }
+  });
+
+  if (isValid) {
+    const submitBtn = this.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+
+    // Capture form values
+    const from_name = inputs[0].value.trim();
+    const email = inputs[1].value.trim();
+    const subject = inputs[2].value.trim();
+    const message = inputs[3].value.trim();
+
+    submitBtn.textContent = "Sending...";
+    submitBtn.disabled = true;
+
+    // Send email using EmailJS
+    processMail(message, email, from_name, subject)
+      .then(() => {
+        Swal.fire({
+          title: "Success!",
+          text: "Thank you for your message! I'll get back to you soon.!",
+          icon: "success",
+        });
+
+        this.reset();
+      })
+      .catch(() => {
+        Swal.fire({
+          title: "Error!",
+          text: "Failed to send email. Please try again.",
+          icon: "error",
+        });
+      })
+      .finally(() => {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      });
+  } else {
+    Swal.fire({
+      title: "Validation Error",
+      text: "Please fill in all fields.",
+      icon: "warning",
+    });
+  }
+});
+
+function processMail(message, email, from_name, subject) {
+  const templateParams = {
+    email: email,
+    subject: subject,
+    to_name: from_name, 
+    from_name: from_name,
+    message: message,
+  };
+
+  return emailjs.send("service_tt8yrbd", "template_foonw0f", templateParams);
+}
+
