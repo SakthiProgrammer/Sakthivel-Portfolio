@@ -514,6 +514,8 @@ body {
   margin-bottom: 1.5rem;
   text-align: center;
 }
+  
+
 
 .skill-tags {
   display: flex;
@@ -522,6 +524,7 @@ body {
   justify-content: center;
 }
 
+/* 
 .skill-tag-enhanced {
   display: flex;
   align-items: center;
@@ -546,7 +549,96 @@ body {
 .skill-name {
   font-weight: 500;
   color: #333;
+} */
+
+/* .skills-grid {
+    display: grid;
+    gap: 40px;
+    margin: 50px auto;
+    max-width: 900px;
+} */
+
+/* .skill-category h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #00c3ff;
+    font-weight: 600;
+    letter-spacing: 1px;
+} 
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
+
+*/
+
+.skill-tag-enhanced {
+    width: 90px;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Animation */
+.skill-tag-enhanced:hover {
+    transform: translateY(-8px) scale(1.08);
+    box-shadow: 0 15px 30px rgba(0, 195, 255, 0.3);
+}
+
+/* Glow Effect */
+.skill-tag-enhanced::before {
+    content: "";
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(0,195,255,0.3) 0%, transparent 70%);
+    top: -50%;
+    left: -50%;
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.skill-tag-enhanced:hover::before {
+    opacity: 1;
+}
+
+/* Skill Image */
+.skill-img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.skill-tag-enhanced:hover .skill-img {
+    transform: scale(1.2) rotate(5deg);
+}
+
+/* Optional floating animation for continuous movement */
+.skill-tag-enhanced {
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+}
+
 
 /* Education Section */
 .education-subsection,
