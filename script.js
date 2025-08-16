@@ -1,25 +1,25 @@
 
 // Navigation functionality
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
     const navLinks = document.querySelectorAll('.nav-link');
 
     // Mobile menu toggle
-    navToggle.addEventListener('click', function() {
+    navToggle.addEventListener('click', function () {
         navMenu.classList.toggle('active');
     });
 
     // Close mobile menu when clicking on a link
     navLinks.forEach(link => {
-        link.addEventListener('click', function() {
+        link.addEventListener('click', function () {
             navMenu.classList.remove('active');
         });
     });
 
     // Smooth scrolling for navigation links
     navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href').substring(1);
             scrollToSection(targetId);
@@ -27,9 +27,21 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Active section highlighting on scroll
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
         const scrollPosition = window.scrollY + 100;
         const sections = ['home', 'experience', 'skills', 'education', 'projects', 'about', 'contact'];
+
+        // 🔹 Navbar reference
+        const navbar = document.querySelector('.navbar');
+
+        // 🔹 If at the very top -> show home style
+        if (window.scrollY === 0) {
+            navbar.classList.add('home-style');
+            navbar.classList.remove('sticky-style');
+        } else {
+            navbar.classList.add('sticky-style');
+            navbar.classList.remove('home-style');
+        }
 
         sections.forEach(sectionId => {
             const section = document.getElementById(sectionId);
@@ -40,14 +52,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
                     // Remove active class from all links
                     navLinks.forEach(link => link.classList.remove('active'));
-                    
+
                     // Add active class to current section link
                     const activeLink = document.querySelector(`[data-section="${sectionId}"]`);
                     if (activeLink) {
                         activeLink.classList.add('active');
                     }
                 }
+
             }
+
         });
     });
 
@@ -92,15 +106,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // if (contactForm) {
     //     contactForm.addEventListener('submit', function(e) {
     //         e.preventDefault();
-            
+
     //         // Get form data
     //         const formData = new FormData(this);
     //         const formEntries = Object.fromEntries(formData);
-            
+
     //         // Simple form validation
     //         const inputs = this.querySelectorAll('.form-input');
     //         let isValid = true;
-            
+
     //         inputs.forEach(input => {
     //             if (!input.value.trim()) {
     //                 isValid = false;
@@ -109,16 +123,16 @@ document.addEventListener('DOMContentLoaded', function() {
     //                 input.style.borderColor = '#e1e5e9';
     //             }
     //         });
-            
+
     //         if (isValid) {
     //             // Simulate form submission
     //             const submitBtn = this.querySelector('button[type="submit"]');
     //             const originalText = submitBtn.textContent;
-                
+
     //             submitBtn.textContent = 'Sending...';
     //             submitBtn.disabled = true;
     //             processMail(message)
-                
+
     //             setTimeout(() => {
     //                 alert('Thank you for your message! I\'ll get back to you soon.');
     //                 this.reset();
@@ -134,20 +148,22 @@ document.addEventListener('DOMContentLoaded', function() {
     // Skill tags hover effect
     const skillTags = document.querySelectorAll('.skill-tag-enhanced');
     skillTags.forEach(tag => {
-        tag.addEventListener('mouseenter', function() {
+        tag.addEventListener('mouseenter', function () {
             this.style.transform = 'translateY(-5px) scale(1.05)';
         });
-        
-        tag.addEventListener('mouseleave', function() {
+
+        tag.addEventListener('mouseleave', function () {
             this.style.transform = 'translateY(0) scale(1)';
         });
     });
 
-     // Typing effect for hero title (optional enhancement)
+    // typeWriter(document.querySelector(".typing-name"), "Sakthivel");
+
+    // Typing effect for hero title (optional enhancement)
     function typeWriter(element, text, speed = 100) {
         let i = 0;
         element.innerHTML = '';
-        
+
         function type() {
             if (i < text.length) {
                 element.innerHTML += text.charAt(i);
@@ -155,18 +171,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 setTimeout(type, speed);
             }
         }
-        
+
         type();
     }
 
     // Add some interactive elements
     const cards = document.querySelectorAll('.education-card, .achievement-card, .project-card');
     cards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
+        card.addEventListener('mouseenter', function () {
             this.style.transform = 'translateY(-8px) rotate(1deg)';
         });
-        
-        card.addEventListener('mouseleave', function() {
+
+        card.addEventListener('mouseleave', function () {
             this.style.transform = 'translateY(0) rotate(0deg)';
         });
 
@@ -179,11 +195,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     [heroImage, aboutImage, bottomImage].forEach(img => {
         if (img) {
-            img.addEventListener('mouseenter', function() {
+            img.addEventListener('mouseenter', function () {
                 this.style.transform = 'scale(1.1) rotate(3deg)';
             });
-            
-            img.addEventListener('mouseleave', function() {
+
+            img.addEventListener('mouseleave', function () {
                 this.style.transform = 'scale(1) rotate(0deg)';
             });
         }
@@ -194,7 +210,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function scrollToSection(sectionId) {
     const element = document.getElementById(sectionId);
     if (element) {
-        const offsetTop = element.offsetTop - 80; // Account for fixed navbar
+        const offsetTop = element.offsetTop - 77;
         window.scrollTo({
             top: offsetTop,
             behavior: 'smooth'
@@ -206,7 +222,7 @@ function openResume() {
     // Open resume PDF in new tab
     // Make sure to place your resume.pdf file in the same directory as your HTML file
     const resumeUrl = 'docs/resume.pdf'; // Change this path to your actual resume file
-    
+
     // Check if file exists before opening
     fetch(resumeUrl, { method: 'HEAD' })
         .then(response => {
@@ -224,7 +240,7 @@ function openResume() {
 
 // Add some fun easter eggs
 let clickCount = 0;
-document.querySelector('.logo-text').addEventListener('click', function() {
+document.querySelector('.logo-text').addEventListener('click', function () {
     clickCount++;
     if (clickCount === 5) {
         this.style.animation = 'bounce 1s ease-in-out';
@@ -236,7 +252,7 @@ document.querySelector('.logo-text').addEventListener('click', function() {
 });
 
 // Parallax effect for hero section
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     const scrolled = window.pageYOffset;
     const heroContent = document.querySelector('.hero-content');
     if (heroContent) {
@@ -246,9 +262,9 @@ window.addEventListener('scroll', function() {
 });
 
 // Add loading animation
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     document.body.classList.add('loaded');
-    
+
     // Animate elements on page load
     setTimeout(() => {
         const heroContent = document.querySelector('.hero-content');
@@ -267,7 +283,7 @@ function animateStats() {
                 const target = entry.target;
                 const finalValue = target.textContent;
                 const numericValue = parseInt(finalValue.replace(/\D/g, ''));
-                
+
                 if (numericValue) {
                     let current = 0;
                     const increment = numericValue / 50;
@@ -281,12 +297,12 @@ function animateStats() {
                         }
                     }, 30);
                 }
-                
+
                 observer.unobserve(target);
             }
         });
     });
-    
+
     stats.forEach(stat => observer.observe(stat));
 }
 
@@ -298,7 +314,7 @@ document.addEventListener('DOMContentLoaded', animateStats);
 function typeWriter(element, text, speed = 100) {
     let i = 0;
     element.innerHTML = '';
-    
+
     function type() {
         if (i < text.length) {
             element.innerHTML += text.charAt(i);
@@ -306,7 +322,7 @@ function typeWriter(element, text, speed = 100) {
             setTimeout(type, speed);
         }
     }
-    
+
     type();
 }
 
@@ -323,16 +339,16 @@ function typeWriter(element, text, speed = 100) {
 // });
 
 // Mouse tracking effect for hero image
-document.addEventListener('mousemove', function(e) {
+document.addEventListener('mousemove', function (e) {
     const heroImage = document.querySelector('.hero-image-wrapper');
     if (heroImage) {
         const rect = heroImage.getBoundingClientRect();
         const x = e.clientX - rect.left - rect.width / 2;
         const y = e.clientY - rect.top - rect.height / 2;
-        
+
         const moveX = x * 0.01;
         const moveY = y * 0.01;
-        
+
         heroImage.style.transform = `translate(${moveX}px, ${moveY}px)`;
     }
 });
@@ -350,7 +366,7 @@ const imageObserver = new IntersectionObserver((entries) => {
 });
 
 // Observe all images
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const images = document.querySelectorAll('.hero-image, .about-image-img, .bottom-profile-image');
     images.forEach(img => {
         img.style.opacity = '0';
@@ -363,73 +379,73 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 document.querySelector(".contact-form").addEventListener("submit", function (e) {
-  e.preventDefault();
+    e.preventDefault();
 
-  const inputs = this.querySelectorAll(".form-input");
-  let isValid = true;
+    const inputs = this.querySelectorAll(".form-input");
+    let isValid = true;
 
-  inputs.forEach((input) => {
-    if (!input.value.trim()) {
-      isValid = false;
-      input.style.borderColor = "#ff6b6b";
-    } else {
-      input.style.borderColor = "#e1e5e9";
-    }
-  });
-
-  if (isValid) {
-    const submitBtn = this.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-
-    // Capture form values
-    const from_name = inputs[0].value.trim();
-    const email = inputs[1].value.trim();
-    const subject = inputs[2].value.trim();
-    const message = inputs[3].value.trim();
-
-    submitBtn.textContent = "Sending...";
-    submitBtn.disabled = true;
-
-    // Send email using EmailJS
-    processMail(message, email, from_name, subject)
-      .then(() => {
-        Swal.fire({
-          title: "Success!",
-          text: "Thank you for your message! I'll get back to you soon.!",
-          icon: "success",
-        });
-
-        this.reset();
-      })
-      .catch(() => {
-        Swal.fire({
-          title: "Error!",
-          text: "Failed to send email. Please try again.",
-          icon: "error",
-        });
-      })
-      .finally(() => {
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-      });
-  } else {
-    Swal.fire({
-      title: "Validation Error",
-      text: "Please fill in all fields.",
-      icon: "warning",
+    inputs.forEach((input) => {
+        if (!input.value.trim()) {
+            isValid = false;
+            input.style.borderColor = "#ff6b6b";
+        } else {
+            input.style.borderColor = "#e1e5e9";
+        }
     });
-  }
+
+    if (isValid) {
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+
+        // Capture form values
+        const from_name = inputs[0].value.trim();
+        const email = inputs[1].value.trim();
+        const subject = inputs[2].value.trim();
+        const message = inputs[3].value.trim();
+
+        submitBtn.textContent = "Sending...";
+        submitBtn.disabled = true;
+
+        // Send email using EmailJS
+        processMail(message, email, from_name, subject)
+            .then(() => {
+                Swal.fire({
+                    title: "Success!",
+                    text: "Thank you for your message! I'll get back to you soon.!",
+                    icon: "success",
+                });
+
+                this.reset();
+            })
+            .catch(() => {
+                Swal.fire({
+                    title: "Error!",
+                    text: "Failed to send email. Please try again.",
+                    icon: "error",
+                });
+            })
+            .finally(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
+    } else {
+        Swal.fire({
+            title: "Validation Error",
+            text: "Please fill in all fields.",
+            icon: "warning",
+        });
+    }
 });
 
 function processMail(message, email, from_name, subject) {
-  const templateParams = {
-    email: email,
-    subject: subject,
-    to_name: from_name, 
-    from_name: from_name,
-    message: message,
-  };
+    const templateParams = {
+        email: email,
+        subject: subject,
+        to_name: from_name,
+        from_name: from_name,
+        message: message,
+    };
 
-  return emailjs.send("service_tt8yrbd", "template_foonw0f", templateParams);
+    return emailjs.send("service_tt8yrbd", "template_foonw0f", templateParams);
 }
 
