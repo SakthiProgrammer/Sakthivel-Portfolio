@@ -634,11 +634,9 @@ body {
 
 .skill-tag-enhanced {
     width: 90px;
-    height: 100px;
-    padding: 7px;
+    height: 90px;
     display: flex;
     justify-content: center;
-    flex-direction: column;
     align-items: center;
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -649,13 +647,6 @@ body {
     cursor: pointer;
     position: relative;
     overflow: hidden;
-}
-
-.skill-tag-enhanced p{
-  margin-top: 6px;
-  padding: 5px;
-  text-align: center;
-  font-size: 0.8rem;
 }
 
 /* Hover Animation */
@@ -695,9 +686,9 @@ body {
 }
 
 /* Optional floating animation for continuous movement */
-/* .skill-tag-enhanced {
+.skill-tag-enhanced {
     animation: float 4s ease-in-out infinite;
-} */
+}
 
 @keyframes float {
     0%, 100% { transform: translateY(0px); }
