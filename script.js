@@ -339,19 +339,19 @@ function typeWriter(element, text, speed = 100) {
 // });
 
 // Mouse tracking effect for hero image
-document.addEventListener('mousemove', function (e) {
-    const heroImage = document.querySelector('.hero-image-wrapper');
-    if (heroImage) {
-        const rect = heroImage.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
+// document.addEventListener('mousemove', function (e) {
+//     const heroImage = document.querySelector('.hero-image-wrapper');
+//     if (heroImage) {
+//         const rect = heroImage.getBoundingClientRect();
+//         const x = e.clientX - rect.left - rect.width / 2;
+//         const y = e.clientY - rect.top - rect.height / 2;
 
-        const moveX = x * 0.01;
-        const moveY = y * 0.01;
+//         const moveX = x * 0.01;
+//         const moveY = y * 0.01;
 
-        heroImage.style.transform = `translate(${moveX}px, ${moveY}px)`;
-    }
-});
+//         heroImage.style.transform = `translate(${moveX}px, ${moveY}px)`;
+//     }
+// });
 
 // Intersection Observer for image animations
 const imageObserver = new IntersectionObserver((entries) => {
@@ -448,4 +448,3 @@ function processMail(message, email, from_name, subject) {
 
     return emailjs.send("service_tt8yrbd", "template_foonw0f", templateParams);
 }
-
