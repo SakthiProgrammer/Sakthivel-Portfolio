@@ -309,6 +309,39 @@ function animateStats() {
 // Initialize stats animation
 document.addEventListener('DOMContentLoaded', animateStats);
 
+// typing effect
+const texts = ["Software Developer", "Full-Stack Developer"];
+let i = 0; // text index
+let j = 0; // char index
+let currentText = "";
+let isDeleting = false;
+const speed = 100; // typing speed
+const eraseSpeed = 50; // deleting speed
+const delayBetween = 1500; // pause before deleting
+
+function typeEffect() {
+  const target = document.getElementById("typed-text");
+
+  if (!isDeleting && j <= texts[i].length) {
+    currentText = texts[i].substring(0, j++);
+    target.textContent = currentText;
+    setTimeout(typeEffect, speed);
+  } else if (isDeleting && j >= 0) {
+    currentText = texts[i].substring(0, j--);
+    target.textContent = currentText;
+    setTimeout(typeEffect, eraseSpeed);
+  } else if (!isDeleting && j > texts[i].length) {
+    isDeleting = true;
+    setTimeout(typeEffect, delayBetween);
+  } else if (isDeleting && j < 0) {
+    isDeleting = false;
+    i = (i + 1) % texts.length; // switch text
+    setTimeout(typeEffect, speed);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", typeEffect);
+
 
 // Dynamic typing effect
 function typeWriter(element, text, speed = 100) {

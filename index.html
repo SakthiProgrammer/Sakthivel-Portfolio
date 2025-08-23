@@ -18,18 +18,18 @@
     <!-- ✅ Author -->
     <meta name="author" content="Sakthivel D">
 
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js" > </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"> </script>
 
-    <script type="text/javascript" >
+    <script type="text/javascript">
         (function () {
             emailjs.init("U7tCHWLeCTfPsU3fp");
         })();
     </script>
-    <script  src="https://cdn.jsdelivr.net/npm/sweetalert2@11" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- ✅ Robots for indexing -->
     <meta name="robots" content="index, follow">
-    
+
     <!-- ✅ Box icon -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href='https://unpkg.com/boxicons@2.1.4/dist/boxicons.js' rel='stylesheet'>
@@ -95,20 +95,18 @@
         <div class="hero-container">
             <div class="hero-content fade-in">
                 <h1 class="hero-title">
-                    Hello, I'm <span class="typing-name text-primary">Sakthivel D</span>
+                    Hello, I'm <span class="text-primary">Sakthivel D</span>
                 </h1>
-                <h2 class="hero-subtitle">Software Developer</h2>
+                <h2 class="hero-subtitle">
+                    <span id="typed-text"></span>
+                    <span class="cursor">|</span>
+                </h2>
+
                 <p class="hero-description">
                     I’m a Passionate Software Developer, Problem Solver, and Tech Enthusiast.
                 </p>
 
-                <p class="hero-description">
-                    I specialize in Java, Go, Vue.js, and Flutter, building scalable and modern applications that solve
-                    real-world challenges. As a full-stack developer, I’m passionate about writing clean, efficient, and
-                    user-focused solutions across web and mobile platforms. I’ve solved 200+ problems on LeetCode,
-                    sharpening my problem-solving skills, and I’m always eager to explore new technologies and
-                    frameworks. My mission is to transform ideas into powerful, reliable software that makes a real
-                    impact
+                <p class="hero-description">I specialize in Java, Go, C, C++, Vue.js, Flutter, and Data Structures & Algorithms, building scalable and modern applications that solve real-world challenges. I’ve solved 200+ problems on LeetCode, sharpening my problem-solving and algorithmic skills, and I’m always eager to explore new technologies and frameworks. My mission is to transform ideas into powerful, reliable software that makes a real impact.
                 </p>
             </div>
 
@@ -132,32 +130,36 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="section">
+    <section id="experience" class="section experience">
         <div class="container">
             <h2 class="section-title animate-on-scroll">Experience</h2>
             <div class="timeline">
-                <div class="timeline-item animate-on-scroll">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Software Developer Executive</h3>
-                        <h4>FLATTRADE Private Limitted</h4>
-                        <span class="timeline-date">Dec 2024 - May 2025 (6 Months) | Chennai, India</span>
-                        <ul class="experience-list">
-                            <li>Developed and optimized 3+ internal tools using Go APIs and automated email schedulers,
-                                resulting in a 30% reduction in manual operations and improved client reporting
-                                efficiency.</li>
-                            <li>Developed scalable backend services using Go, improving response times by 40% through
-                                clean architecture and optimized queries.</li>
-                            <li>Built interactive user interfaces using Vue.js and mobile modules with Flutter.</li>
-                            <li>Collaborated with cross-functional teams to debug issues, refactor code, and improve UI
-                                responsiveness.</li>
-                            <li>Followed Git-based workflows and maintained structured commit practices.</li>
-                        </ul>
-                    </div>
+                <!-- Experience Item -->
+                <!-- <div class="timeline-dot"></div> -->
+                <div class="timeline-card">
+                    <div class="circle"><img class="timeline-logo" src="/docs/flattrade (1).png" alt="Flattrade Logo"></div>
+                    <h3>Software Developer Executive</h3>
+                    <h4>Flattrade Broking Private Limited</h4>
+                    <span class="timeline-date">Dec 2024 - May 2025 (6 Months) | Chennai, India</span>
+                    <ul class="experience-list">
+                        <li>Developed and optimized 3+ internal tools using Go APIs and automated email
+                            schedulers,
+                            resulting in a 30% reduction in manual operations and improved client reporting
+                            efficiency.</li>
+                        <li>Developed scalable backend services using Go, improving response times by 40%
+                            through
+                            clean architecture and optimized queries.</li>
+                        <li>Built interactive user interfaces using Vue.js and mobile modules with Flutter.</li>
+                        <li>Collaborated with cross-functional teams to debug issues, refactor code, and improve
+                            UI
+                            responsiveness.</li>
+                        <li>Followed Git-based workflows and maintained structured commit practices.</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- Skills Section -->
     <section id="skills" class="section section-alt">
@@ -178,6 +180,14 @@
                         <div class="skill-tag-enhanced">
                             <img src="docs/Skills-Icons/javascript.svg" alt="JavaScript" class="skill-img">
                             <p>Javascript</p>
+                        </div>
+                        <div class="skill-tag-enhanced">
+                            <img src="docs/Skills-Icons/c.svg" alt="C" class="skill-img">
+                            <p>C</p>
+                        </div>
+                        <div class="skill-tag-enhanced">
+                            <img src="docs/Skills-Icons/c++.svg" alt="C++" class="skill-img">
+                            <p>C++</p>
                         </div>
                         <div class="skill-tag-enhanced">
                             <img src="docs/Skills-Icons/html.svg" alt="HTML5" class="skill-img">
@@ -243,6 +253,10 @@
                             <p>Eclipse</p>
                         </div>
                         <div class="skill-tag-enhanced">
+                            <img src="docs/Skills-Icons/figma-icon.svg" alt="Figma" class="skill-img">
+                            <p>Figma</p>
+                        </div>
+                        <div class="skill-tag-enhanced">
                             <img src="docs/Skills-Icons/postman.svg" alt="Postman" class="skill-img">
                             <p>Postman</p>
                         </div>
@@ -291,8 +305,7 @@
                 <h3 class="subsection-title animate-on-scroll">Achievements & Profiles</h3>
                 <div class="achievements-grid">
                     <div class="achievement-card animate-on-scroll">
-                        <iframe
-                            class="leetcode-frame"
+                        <iframe class="leetcode-frame"
                             src="https://leetcard.jacoblin.cool/Sakthivel_D47?theme=unicorn&extension=activity"
                             title="LeetCode Profile Card">
                         </iframe>
@@ -429,9 +442,12 @@
                 <div class="contact-info animate-on-scroll">
                     <h3>Let's work together</h3>
                     <p>
-                        I am always open to discussing new opportunities, collaborations, and professional projects. If you are looking for a dedicated developer to contribute to your team or have a project idea that requires technical expertise, I would be glad to connect.
+                        I am always open to discussing new opportunities, collaborations, and professional projects. If
+                        you are looking for a dedicated developer to contribute to your team or have a project idea that
+                        requires technical expertise, I would be glad to connect.
 
-I am passionate about delivering high-quality solutions and continuously improving my skills, and I look forward to exploring how I can add value to your organization.
+                        I am passionate about delivering high-quality solutions and continuously improving my skills,
+                        and I look forward to exploring how I can add value to your organization.
                     </p>
                     <!-- <div class="contact-details">
                         <div class="contact-item">
