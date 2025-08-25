@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
             navbar.classList.remove('home-style');
         }
 
+        // 🔹 Highlight active section in navbar
         sections.forEach(sectionId => {
             const section = document.getElementById(sectionId);
             if (section) {
@@ -58,10 +59,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (activeLink) {
                         activeLink.classList.add('active');
                     }
+
                 }
-
             }
-
         });
     });
 
@@ -78,6 +78,9 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }, observerOptions);
+
+
+
 
     // Observe all elements with animate-on-scroll class
     const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
@@ -206,6 +209,11 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+
+
+
+ 
+
 // Utility functions
 function scrollToSection(sectionId) {
     const element = document.getElementById(sectionId);
@@ -242,7 +250,7 @@ function openResume() {
 let clickCount = 0;
 document.querySelector('.logo-text').addEventListener('click', function () {
     clickCount++;
-    if (clickCount === 5) {
+    if (clickCount == 5) {
         this.style.animation = 'bounce 1s ease-in-out';
         setTimeout(() => {
             this.style.animation = '';
@@ -320,24 +328,24 @@ const eraseSpeed = 50; // deleting speed
 const delayBetween = 1500; // pause before deleting
 
 function typeEffect() {
-  const target = document.getElementById("typed-text");
+    const target = document.getElementById("typed-text");
 
-  if (!isDeleting && j <= texts[i].length) {
-    currentText = texts[i].substring(0, j++);
-    target.textContent = currentText;
-    setTimeout(typeEffect, speed);
-  } else if (isDeleting && j >= 0) {
-    currentText = texts[i].substring(0, j--);
-    target.textContent = currentText;
-    setTimeout(typeEffect, eraseSpeed);
-  } else if (!isDeleting && j > texts[i].length) {
-    isDeleting = true;
-    setTimeout(typeEffect, delayBetween);
-  } else if (isDeleting && j < 0) {
-    isDeleting = false;
-    i = (i + 1) % texts.length; // switch text
-    setTimeout(typeEffect, speed);
-  }
+    if (!isDeleting && j <= texts[i].length) {
+        currentText = texts[i].substring(0, j++);
+        target.textContent = currentText;
+        setTimeout(typeEffect, speed);
+    } else if (isDeleting && j >= 0) {
+        currentText = texts[i].substring(0, j--);
+        target.textContent = currentText;
+        setTimeout(typeEffect, eraseSpeed);
+    } else if (!isDeleting && j > texts[i].length) {
+        isDeleting = true;
+        setTimeout(typeEffect, delayBetween);
+    } else if (isDeleting && j < 0) {
+        isDeleting = false;
+        i = (i + 1) % texts.length; // switch text
+        setTimeout(typeEffect, speed);
+    }
 }
 
 document.addEventListener("DOMContentLoaded", typeEffect);
