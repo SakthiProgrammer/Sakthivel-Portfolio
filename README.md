@@ -37,11 +37,9 @@ My mission is to transform ideas into **powerful, reliable software** that makes
 ## 📫 Contact Me
 
 * 📧 Email: **[sakthiveld479@gmail.com](mailto:sakthiveld479@gmail.com)**
-* 🔗 LinkedIn: [linkedin.com/in/sakthivel-d](https://linkedin.com/in/)
+* 🔗 LinkedIn: [linkedin.com/in/sakthivel-d](https://www.linkedin.com/in/sakthiprogrammer)
 * 🌐 Portfolio: [sakthiprogrammer.github.io/Sakthivel-Portfolio](https://sakthiprogrammer.github.io/Sakthivel-Portfolio)
 
 ---
 
 ⭐ If you like my portfolio, feel free to **star** this repo!
-
-Do you also want me to **add shields.io badges** (like Java, Go, Vue.js, GitHub) at the top so it instantly shows your stack? That makes the README more modern and developer-focused.
