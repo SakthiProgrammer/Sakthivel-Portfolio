@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 :root {
   --color-primary: #4300FF;
   --color-secondary: #0065F8;
@@ -393,6 +392,7 @@ body {
 
 /* Hero Image Styles */
 .hero-image-container {
+  margin-top: -50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -561,8 +561,8 @@ body {
    */
   background: linear-gradient(40deg,
       var(--color-accent) 0%,
-      var(--color-accent) 20%,
-      var(--color-primary) 65%,
+      var(--color-accent) 40%,
+      var(--color-primary) 75%,
       var(--color-primary) 80%);
 
   -webkit-background-clip: text;
@@ -748,6 +748,7 @@ body {
 
 /* Headings, date, list styles (same as yours) */
 .timeline-card h3 {
+  font-family: "Open Sans";
   font-size: 1.3rem;
   margin-bottom: 5px;
   color: #1995AD;
@@ -782,6 +783,14 @@ body {
 
 /* ✅ Responsive: stack cards full width on mobile */
 @media (max-width: 768px) {
+
+  .scroll-indicator{
+    display: none;
+  }
+
+  ::-webkit-scrollbar{
+    width: 0;
+  }
   .timeline::after {
     left: 30px;   /* move line to left side */
     transform: none;
@@ -828,6 +837,7 @@ body {
 }
 
 .skill-category h3 {
+  font-family: 'Open Sans';
   font-size: 1.3rem;
   color: var(--color-primary);
   margin-bottom: 1.5rem;
@@ -1440,8 +1450,13 @@ body {
 @media (max-width: 768px) {
   .hero-container {
     grid-template-columns: 1fr;
-    text-align: center;
+    text-align: left;
     gap: 2rem;
+  }
+
+  .hero-title{
+    margin-top: 22px;
+    /* text-align: center; */
   }
 
   .hero-image {
@@ -1562,19 +1577,27 @@ html {
 }
 
 /* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+/* DESKTOP/LAPTOP (mouse/trackpad): apply custom scrollbars */
+@media (any-hover: hover) and (any-pointer: fine) {
+  /* WebKit/Blink (Chrome, Edge, Safari) */
+  *::-webkit-scrollbar { width: 8px; height: 8px; }
+  *::-webkit-scrollbar-track { background: #f1f1f1; }
+  *::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    border-radius: 4px;
+  }
+  *::-webkit-scrollbar-thumb:hover { background: var(--color-primary); }
+
+  /* Firefox desktop */
+  html { scrollbar-width: thin; scrollbar-color: var(--color-primary) #f1f1f1; }
 }
 
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
+/* TOUCH-FIRST (phones/tablets): ensure no custom styling leaks through */
+@media (hover: none) and (pointer: coarse) {
+  /* If any global rules remain, neutralize them (fallback) */
+  *::-webkit-scrollbar { width: initial; height: initial; }
+  *::-webkit-scrollbar-track { background: initial; }
+  *::-webkit-scrollbar-thumb { background: initial; border-radius: initial; }
+  html { scrollbar-width: auto; scrollbar-color: auto; }
 }
 
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-primary);
-}
