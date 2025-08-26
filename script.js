@@ -80,6 +80,21 @@ document.addEventListener('DOMContentLoaded', function () {
     }, observerOptions);
 
 
+document.querySelectorAll(".achievement-card").forEach(card => {
+  card.addEventListener("mouseenter", () => {
+    card.style.transform = "scale(1.03)";
+    card.style.transition = "transform 0.25s ease, box-shadow 0.25s ease";
+    card.style.boxShadow = "0 12px 30px rgba(0,0,0,0.15)";
+    card.style.zIndex = "5";
+  });
+
+  card.addEventListener("mouseleave", () => {
+    card.style.transform = "scale(1)";
+    card.style.transition = "transform 0.25s ease, box-shadow 0.25s ease";
+    card.style.boxShadow = "0 6px 15px rgba(0,0,0,0.1)";
+    card.style.zIndex = "1";
+  });
+});
 
 
     // Observe all elements with animate-on-scroll class
@@ -179,7 +194,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Add some interactive elements
-    const cards = document.querySelectorAll('.education-card, .achievement-card, .project-card');
+    const cards = document.querySelectorAll('.education-card, .project-card');
     cards.forEach(card => {
         card.addEventListener('mouseenter', function () {
             this.style.transform = 'translateY(-8px) rotate(1deg)';
