@@ -64,6 +64,52 @@
 </head>
 
 <body>
+
+
+
+    <!-- loader -->
+<!-- Page loader overlay -->
+<div id="page-loader" aria-hidden="false" role="status">
+  <div class="loader-inner" aria-hidden="true">
+    <!-- SVG animated loader -->
+    <svg class="loader-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Loading">
+      <defs>
+        <!-- Gradient: accent blue -> light green -->
+        <linearGradient id="loaderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="var(--color-accent)" />
+          <stop offset="100%" stop-color="#7BE495" />
+        </linearGradient>
+
+        <!-- A soft glow for the ring -->
+        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="3.5" result="coloredBlur"/>
+          <feMerge>
+            <feMergeNode in="coloredBlur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+      </defs>
+
+      <!-- Background faint circle -->
+      <circle cx="60" cy="60" r="44" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="10"/>
+
+      <!-- Animated gradient ring -->
+      <g filter="url(#glow)">
+        <circle class="ring" cx="60" cy="60" r="44" fill="none" stroke="url(#loaderGradient)"
+                stroke-width="10" stroke-linecap="round" stroke-dasharray="260" stroke-dashoffset="80"/>
+      </g>
+
+      <!-- Orbit wrapper for the dot -->
+      <g class="orbit">
+        <circle cx="60" cy="16" r="5" fill="url(#loaderGradient)" />
+      </g>
+    </svg>
+
+    <div class="loader-text">Loading...</div>
+  </div>
+</div>
+
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -390,12 +436,12 @@
     <section id="projects" class="section">
         <div class="container">
             <h2 class="section-title animate-on-scroll">Projects</h2>
-            <div class="projects-slider">
+            <div class="projects-slider animate-on-scroll">
                 <!-- Project 1 -->
                 <div class="project-card">
                     <div class="card-inner">
                         <div class="card-front">
-                            <img src="docs/food-delivery.png" alt="Food Delivery Project">
+                            <img src="docs/food-delivery.jpg" alt="Food Delivery Project">
                             <h3>Food Delivery System</h3>
                         </div>
                         <div class="card-back">
@@ -411,7 +457,7 @@
                 <div class="project-card">
                     <div class="card-inner">
                         <div class="card-front">
-                            <img src="docs/car-rental.png" alt="Car Rental Project">
+                            <img src="docs/food-delivery.jpg" alt="Car Rental Project">
                             <h3>Car Rental System</h3>
                         </div>
                         <div class="card-back">
@@ -422,8 +468,38 @@
                         </div>
                     </div>
                 </div>
-            </div>
 
+                <div class="project-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="docs/food-delivery.jpg" alt="Car Rental Project">
+                            <h3>Youtube Clone UI</h3>
+                        </div>
+                        <div class="card-back">
+                            <p>Youtube Clone UI using html, css, javascript</p>
+                            <a href="https://github.com/yourusername/car-rental" target="_blank" class="github-link">
+                                View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="docs/food-delivery.jpg" alt="Car Rental Project">
+                            <h3>Micro Logger</h3>
+                        </div>
+                        <div class="card-back">
+                            <p>Micro Logger loggig system using java</p>
+                            <a href="https://github.com/yourusername/car-rental" target="_blank" class="github-link">
+                                View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 

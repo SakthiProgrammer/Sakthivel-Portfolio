@@ -1,4 +1,29 @@
 
+
+// loader
+
+
+// Hide loader when the page fully loads
+window.addEventListener("load", () => {
+    const loader = document.getElementById('page-loader');
+    if (!loader) return;
+    // add a slight delay so the UX feels smooth
+    setTimeout(() => {
+        loader.classList.add('hidden');
+        loader.setAttribute('aria-hidden', 'true');
+    }, 500);
+});
+
+// Optional: ability to manually hide if using SPA navigation
+function hideLoaderNow() {
+    const loader = document.getElementById('page-loader');
+    if (!loader) return;
+    loader.classList.add('hidden');
+    loader.setAttribute('aria-hidden', 'true');
+}
+
+
+
 // Navigation functionality
 document.addEventListener('DOMContentLoaded', function () {
     const navToggle = document.getElementById('navToggle');
@@ -6,9 +31,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const navLinks = document.querySelectorAll('.nav-link');
 
     // Mobile menu toggle
-    navToggle.addEventListener('click', function () {
-        navMenu.classList.toggle('active');
-    });
+    if (navToggle) {
+        navToggle.addEventListener('click', function () {
+            navMenu.classList.toggle('active');
+        });
+    }
 
     // Close mobile menu when clicking on a link
     navLinks.forEach(link => {
@@ -31,10 +58,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const scrollPosition = window.scrollY + 100;
         const sections = ['home', 'experience', 'skills', 'education', 'projects', 'about', 'contact'];
 
-        // 🔹 Navbar reference
+        // Navbar reference
         const navbar = document.querySelector('.navbar');
+        if (!navbar) return;
 
-        // 🔹 If at the very top -> show home style
         if (window.scrollY === 0) {
             navbar.classList.add('home-style');
             navbar.classList.remove('sticky-style');
@@ -43,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
             navbar.classList.remove('home-style');
         }
 
-        // 🔹 Highlight active section in navbar
+        // Highlight active section in navbar
         sections.forEach(sectionId => {
             const section = document.getElementById(sectionId);
             if (section) {
@@ -51,21 +78,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 const offsetHeight = section.offsetHeight;
 
                 if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-                    // Remove active class from all links
                     navLinks.forEach(link => link.classList.remove('active'));
-
-                    // Add active class to current section link
                     const activeLink = document.querySelector(`[data-section="${sectionId}"]`);
-                    if (activeLink) {
-                        activeLink.classList.add('active');
-                    }
-
+                    if (activeLink) activeLink.classList.add('active');
                 }
             }
         });
     });
 
-    // Scroll animations
+    // Intersection Observer for scroll animations
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -73,100 +94,39 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animated');
-            }
+            if (entry.isIntersecting) entry.target.classList.add('animated');
         });
     }, observerOptions);
 
+    // Observe animate-on-scroll elements
+    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
 
-document.querySelectorAll(".achievement-card").forEach(card => {
-  card.addEventListener("mouseenter", () => {
-    card.style.transform = "scale(1.03)";
-    card.style.transition = "transform 0.25s ease, box-shadow 0.25s ease";
-    card.style.boxShadow = "0 12px 30px rgba(0,0,0,0.15)";
-    card.style.zIndex = "5";
-  });
+    // Achievement card hover
+    document.querySelectorAll(".achievement-card").forEach(card => {
+        card.addEventListener("mouseenter", () => {
+            card.style.transform = "scale(1.03)";
+            card.style.transition = "transform 0.25s ease, box-shadow 0.25s ease";
+            card.style.boxShadow = "0 12px 30px rgba(0,0,0,0.15)";
+            card.style.zIndex = "5";
+        });
 
-  card.addEventListener("mouseleave", () => {
-    card.style.transform = "scale(1)";
-    card.style.transition = "transform 0.25s ease, box-shadow 0.25s ease";
-    card.style.boxShadow = "0 6px 15px rgba(0,0,0,0.1)";
-    card.style.zIndex = "1";
-  });
-});
-
-
-
-
-
-    // Observe all elements with animate-on-scroll class
-    const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
-    elementsToAnimate.forEach(el => observer.observe(el));
-
-    // Navbar background on scroll
-    // window.addEventListener('scroll', function() {
-    //     const navbar = document.querySelector('.navbar');
-    //     if (window.scrollY > 50) {
-    //         navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-    //         navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-    //     } else {
-    //         navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-    //         navbar.style.boxShadow = 'none';
-    //     }
-    // });
-
-    window.addEventListener('scroll', () => {
-        const navbar = document.querySelector('.navbar');
-        navbar.classList.toggle('scrolled', window.scrollY > 50);
+        card.addEventListener("mouseleave", () => {
+            card.style.transform = "scale(1)";
+            card.style.transition = "transform 0.25s ease, box-shadow 0.25s ease";
+            card.style.boxShadow = "0 6px 15px rgba(0,0,0,0.1)";
+            card.style.zIndex = "1";
+        });
     });
 
+    // Navbar scrolled state
+    window.addEventListener('scroll', () => {
+        const navbar = document.querySelector('.navbar');
+        if (navbar) {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        }
+    });
 
-    // Contact form submission
-    // const contactForm = document.querySelector('.contact-form');
-    // if (contactForm) {
-    //     contactForm.addEventListener('submit', function(e) {
-    //         e.preventDefault();
-
-    //         // Get form data
-    //         const formData = new FormData(this);
-    //         const formEntries = Object.fromEntries(formData);
-
-    //         // Simple form validation
-    //         const inputs = this.querySelectorAll('.form-input');
-    //         let isValid = true;
-
-    //         inputs.forEach(input => {
-    //             if (!input.value.trim()) {
-    //                 isValid = false;
-    //                 input.style.borderColor = '#ff6b6b';
-    //             } else {
-    //                 input.style.borderColor = '#e1e5e9';
-    //             }
-    //         });
-
-    //         if (isValid) {
-    //             // Simulate form submission
-    //             const submitBtn = this.querySelector('button[type="submit"]');
-    //             const originalText = submitBtn.textContent;
-
-    //             submitBtn.textContent = 'Sending...';
-    //             submitBtn.disabled = true;
-    //             processMail(message)
-
-    //             setTimeout(() => {
-    //                 alert('Thank you for your message! I\'ll get back to you soon.');
-    //                 this.reset();
-    //                 submitBtn.textContent = originalText;
-    //                 submitBtn.disabled = false;
-    //             }, 2000);
-    //         } else {
-    //             alert('Please fill in all fields.');
-    //         }
-    //     });
-    // }
-
-    // Skill tags hover effect
+    // Skill tags hover
     const skillTags = document.querySelectorAll('.skill-tag-enhanced');
     skillTags.forEach(tag => {
         tag.addEventListener('mouseenter', function () {
@@ -178,9 +138,7 @@ document.querySelectorAll(".achievement-card").forEach(card => {
         });
     });
 
-    // typeWriter(document.querySelector(".typing-name"), "Sakthivel");
-
-    // Typing effect for hero title (optional enhancement)
+    // Typing effect
     function typeWriter(element, text, speed = 100) {
         let i = 0;
         element.innerHTML = '';
@@ -192,12 +150,11 @@ document.querySelectorAll(".achievement-card").forEach(card => {
                 setTimeout(type, speed);
             }
         }
-
         type();
     }
+    // Example usage:
+    // typeWriter(document.querySelector(".typing-name"), "Sakthivel");
 
-    // Add some interactive elements
-    
     // Image hover effects
     const heroImage = document.querySelector('.hero-image');
     const aboutImage = document.querySelector('.about-image-img');
@@ -219,7 +176,7 @@ document.querySelectorAll(".achievement-card").forEach(card => {
 
 
 
- 
+
 
 // Utility functions
 function scrollToSection(sectionId) {

@@ -32,6 +32,119 @@ body {
   padding: 0 10px;
 }
 
+/* Loader */
+
+
+:root{
+  --color-primary: #4300FF;
+  --color-secondary: #0065F8;
+  --color-accent: #00CAFF;
+}
+
+/* Full-screen overlay */
+#page-loader {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(180deg, rgba(10,15,30,0.85), rgba(10,15,30,0.6));
+  z-index: 9999;
+  transition: opacity 300ms ease, visibility 300ms ease;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* inner box */
+#page-loader .loader-inner {
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  transform: translateY(0);
+}
+
+/* svg sizing */
+.loader-svg {
+  width: 110px;
+  height: 110px;
+  display: block;
+}
+
+/* rotating/animating the ring */
+@keyframes ring-rotate {
+  0%   { transform: rotate(0deg); stroke-dashoffset: 80; }
+  50%  { transform: rotate(180deg); stroke-dashoffset: 320; }
+  100% { transform: rotate(360deg); stroke-dashoffset: 80; }
+}
+
+@keyframes dot-orbit {
+  0%   { transform: rotate(0deg) translateY(-44px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateY(-44px) rotate(-360deg); }
+}
+
+/* apply animations */
+/* .loader-svg .ring {
+  transform-origin: 60px 60px;
+  animation: ring-rotate 1.8s cubic-bezier(.2,.9,.4,1) infinite;
+} */
+
+/* Ring animation */
+.ring {
+  transform-origin: 60px 60px;
+  animation: spinRing 2s linear infinite;
+}
+@keyframes spinRing {
+  from { stroke-dashoffset: 260; transform: rotate(0deg); }
+  to   { stroke-dashoffset: 80; transform: rotate(360deg); }
+}
+
+/* Orbit animation for the dot */
+.orbit {
+  transform-origin: 60px 60px;
+  animation: spinOrbit 2s linear infinite;
+}
+@keyframes spinOrbit {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+
+.loader-svg .dot {
+  transform-origin: 60px 60px;
+  transform-box: fill-box;
+  animation: dot-orbit 1.8s linear infinite;
+  /* subtle pulse */
+  transition: r 150ms;
+}
+
+/* loading text */
+.loader-text {
+  font-family: "Nunito", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  color: rgba(255,255,255,0.95);
+}
+
+/* Fade out when hidden */
+#page-loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .loader-svg .ring,
+  .loader-svg .dot {
+    animation: none;
+  }
+}
+
+
+
 /* Navigation */
 /* .navbar {
   position: fixed;
@@ -841,9 +954,9 @@ body {
 }
 
 
-/* Skills Section */
-.skills-grid {
-  font-family: 'Montserrat';
+/* Skills Section Montserrat*/
+.skills-grid { 
+  font-family: 'Nunito';
   font-weight: 600;
   font-size: 1rem;
   display: grid;
@@ -853,8 +966,8 @@ body {
   margin: 0 auto;
 }
 
-.skill-category h3 {
-  font-family: 'Open Sans';
+.subsection-title, .skill-category h3 {
+  font-family: 'Montserrat';
   font-size: 1.3rem;
   color: var(--color-primary);
   margin-bottom: 1.5rem;
@@ -1165,6 +1278,7 @@ body {
 
 /* Typography */
 .edu-card h3 {
+  font-family: 'Open Sans';
   font-size: 1.2rem;
   margin-bottom: 6px;
   color: var(--color-green);
@@ -1291,17 +1405,17 @@ body {
 
 
 .achievements-subsection {
-  margin: 60px auto;
+  margin: 30px auto;
   max-width: 1100px;
   text-align: center;
 }
 
-.subsection-title {
+/* .subsection-title {
   font-size: 1.8rem;
   margin-bottom: 30px;
   font-weight: 600;
   color: #1995AD;
-}
+} */
 
 .achievements-slider {
   display: flex;
@@ -1324,22 +1438,22 @@ body {
 /* Card wrapper */
 .achievement-card {
   background: #fff;
-  flex: 0 0 300px;       /* smaller fixed width */
-  max-width: 320px;      /* cap max size */
+  flex: 0 0 340px;       /* ⬆️ was 300px → bigger desktop card (adjust here) */
+  max-width: 360px;      /* ⬆️ was 320px → increase cap size (adjust here) */
   border-radius: 0;
   box-shadow: 0 6px 15px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 12px;
+  padding: 14px;         /* ⬆️ was 12px → more spacing (adjust here) */
   transition: transform 0.4s ease, box-shadow 0.3s ease;
 }
 
 /* Image/iframe container */
 .achievement-image {
   width: 100%;
-  height: 180px;           /* 👈 stable height */
-  overflow: hidden;        /* hide overflow cleanly */
+  height: 200px;         /* ⬆️ was 180px → taller image (adjust here) */
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1350,7 +1464,7 @@ body {
 .achievement-image img {
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;     /* never stretch */
+  object-fit: contain;
   display: block;
 }
 
@@ -1360,55 +1474,52 @@ body {
   height: 100%;
   border: none;
   display: block;
-  transform: scale(0.9);   /* 👈 scale down a bit */
+  transform: scale(0.9);
   transform-origin: top left;
 }
 
 /* Info section */
 .achievement-info {
-  padding: 8px 0 5px;
+  padding: 10px 0 7px;   /* ⬆️ was 8px/5px → more breathing room */
   background: #fdfdfd;
   text-align: center;
 }
 
 .achievement-info h4 {
   margin: 0;
-  font-size: 1rem;
+  font-size: 1.05rem;    /* ⬆️ was 1rem → slightly larger text */
   font-weight: 600;
   color: #333;
 }
 
-
-
 /* Mobile: adjust slightly */
 @media (max-width: 768px) {
   .achievement-card {
-    flex: 0 0 240px;   /* narrower cards */
+    flex: 0 0 270px;     /* ⬆️ was 240px → wider mobile card (adjust here) */
   }
   .achievement-image {
-    height: 160px;
+    height: 180px;       /* ⬆️ was 160px → taller mobile image (adjust here) */
   }
 
   /* Wrapper to control aspect ratio */
-.iframe-wrapper {
-  position: relative;
-  width: 100%;
-  padding-top: 60%;   /* 👈 aspect ratio ~ 16:9, adjust as needed */
-  overflow: hidden;
-  background: #fafafa;
-}
+  .iframe-wrapper {
+    position: relative;
+    width: 100%;
+    /* padding-top: 60%;  aspect ratio ~ 16:9, adjust as needed */
+    overflow: hidden;
+    background: #fafafa;
+  }
 
-/* Make iframe fill the wrapper */
-.iframe-wrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-  overflow: hidden;     /* no scrollbars inside */
-}
-
+  /* Make iframe fill the wrapper */
+  .iframe-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    overflow: hidden;     /* no scrollbars inside */
+  }
 }
 
 
