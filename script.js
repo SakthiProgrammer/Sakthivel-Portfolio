@@ -197,18 +197,7 @@ document.querySelectorAll(".achievement-card").forEach(card => {
     }
 
     // Add some interactive elements
-    const cards = document.querySelectorAll('.education-card, .project-card');
-    cards.forEach(card => {
-        card.addEventListener('mouseenter', function () {
-            this.style.transform = 'translateY(-8px) rotate(1deg)';
-        });
-
-        card.addEventListener('mouseleave', function () {
-            this.style.transform = 'translateY(0) rotate(0deg)';
-        });
-
-    });
-
+    
     // Image hover effects
     const heroImage = document.querySelector('.hero-image');
     const aboutImage = document.querySelector('.about-image-img');
