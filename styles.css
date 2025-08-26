@@ -1320,69 +1320,73 @@ body {
 /* Card width slightly bigger */
 /* Ensure hover transform works with animate-on-scroll */
 
+/* Card wrapper */
 .achievement-card {
   background: #fff;
-  flex: 0 0 320px;
+  flex: 0 0 280px;       /* smaller fixed width */
+  max-width: 320px;      /* cap max size */
   border-radius: 0;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1); /* base shadow */
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 12px;
-  will-change: transform, box-shadow;
-  transition: transform 0.5s ease, box-shadow 0.3s ease; /* 👈 smooth transition */
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
 }
 
-
-/* Hover effect */
-.achievement-card:hover {
-  transform: scale(1.05) translateZ(0); /* ensure GPU acceleration */
-  z-index: 2;
-}
-
-/* Image/iframe wrapper */
+/* Image/iframe container */
 .achievement-image {
   width: 100%;
-  height: 200px;
-  overflow: hidden;
+  height: 180px;           /* 👈 stable height */
+  overflow: hidden;        /* hide overflow cleanly */
   display: flex;
   align-items: center;
   justify-content: center;
   background: #fafafa;
 }
 
-.achievement-image img,
+/* Images scale proportionally */
+.achievement-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;     /* never stretch */
+  display: block;
+}
+
+/* Iframe behaves like an image */
 .achievement-image iframe {
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  object-position: top;
-  object-fit: contain;
   border: none;
+  display: block;
+  transform: scale(0.9);   /* 👈 scale down a bit */
+  transform-origin: top left;
 }
 
 /* Info section */
 .achievement-info {
-  padding: 10px 0 5px;
+  padding: 8px 0 5px;
   background: #fdfdfd;
   text-align: center;
 }
 
 .achievement-info h4 {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   color: #333;
 }
 
-/* certificates */
-
-.certificate-frame {
-  width: 100%;
-  height: 260px;   /* adjust based on card size */
-  border: none;
-  border-radius: 4px;
+/* Mobile: adjust slightly */
+@media (max-width: 768px) {
+  .achievement-card {
+    flex: 0 0 240px;   /* narrower cards */
+  }
+  .achievement-image {
+    height: 160px;
+  }
 }
+
 
 
 
@@ -1744,12 +1748,17 @@ body {
     height: 250px;
   }
 
+  .resume-btn{
+    width: 50%;
+    height: 50px;
+  }
+
   .nav-menu {
     position: fixed;
     top: 80px;
     left: -110%;
     width: 100%;
-    height: calc(100vh - 80px);
+    height: 100vh;
     background: white;
     flex-direction: column;
     justify-content: center;
