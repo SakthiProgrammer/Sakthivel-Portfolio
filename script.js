@@ -97,6 +97,9 @@ document.querySelectorAll(".achievement-card").forEach(card => {
 });
 
 
+
+
+
     // Observe all elements with animate-on-scroll class
     const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
     elementsToAnimate.forEach(el => observer.observe(el));
