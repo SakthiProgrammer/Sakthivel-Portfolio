@@ -392,7 +392,6 @@ body {
 
 /* Hero Image Styles */
 .hero-image-container {
-  margin-top: -50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -784,6 +783,11 @@ body {
 /* ✅ Responsive: stack cards full width on mobile */
 @media (max-width: 768px) {
 
+
+.hero-image-container {
+  margin-top: -50px;
+
+}
   .scroll-indicator{
     display: none;
   }
