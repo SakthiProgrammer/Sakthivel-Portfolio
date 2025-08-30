@@ -1,7 +1,4 @@
-
-
 // loader
-
 
 // Hide loader when the page fully loads
 window.addEventListener("load", () => {
@@ -13,16 +10,6 @@ window.addEventListener("load", () => {
         loader.setAttribute('aria-hidden', 'true');
     }, 500);
 });
-
-// Optional: ability to manually hide if using SPA navigation
-function hideLoaderNow() {
-    const loader = document.getElementById('page-loader');
-    if (!loader) return;
-    loader.classList.add('hidden');
-    loader.setAttribute('aria-hidden', 'true');
-}
-
-
 
 // Navigation functionality
 document.addEventListener('DOMContentLoaded', function () {
@@ -138,23 +125,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Typing effect
-    function typeWriter(element, text, speed = 100) {
-        let i = 0;
-        element.innerHTML = '';
-
-        function type() {
-            if (i < text.length) {
-                element.innerHTML += text.charAt(i);
-                i++;
-                setTimeout(type, speed);
-            }
-        }
-        type();
-    }
-    // Example usage:
-    // typeWriter(document.querySelector(".typing-name"), "Sakthivel");
-
     // Image hover effects
     const heroImage = document.querySelector('.hero-image');
     const aboutImage = document.querySelector('.about-image-img');
@@ -172,11 +142,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
-
-
-
-
-
 
 // Utility functions
 function scrollToSection(sectionId) {
@@ -314,50 +279,6 @@ function typeEffect() {
 
 document.addEventListener("DOMContentLoaded", typeEffect);
 
-
-// Dynamic typing effect
-function typeWriter(element, text, speed = 100) {
-    let i = 0;
-    element.innerHTML = '';
-
-    function type() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
-    }
-
-    type();
-}
-
-
-// Initialize typing effect on hero title
-// document.addEventListener('DOMContentLoaded', function() {
-//     const heroTitle = document.querySelector('.hero-title');
-//     if (heroTitle) {
-//         const originalText = heroTitle.innerHTML;
-//         setTimeout(() => {
-//             typeWriter(heroTitle, originalText, 50);
-//         }, 1000);
-//     }
-// });
-
-// Mouse tracking effect for hero image
-// document.addEventListener('mousemove', function (e) {
-//     const heroImage = document.querySelector('.hero-image-wrapper');
-//     if (heroImage) {
-//         const rect = heroImage.getBoundingClientRect();
-//         const x = e.clientX - rect.left - rect.width / 2;
-//         const y = e.clientY - rect.top - rect.height / 2;
-
-//         const moveX = x * 0.01;
-//         const moveY = y * 0.01;
-
-//         heroImage.style.transform = `translate(${moveX}px, ${moveY}px)`;
-//     }
-// });
-
 // Intersection Observer for image animations
 const imageObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -380,8 +301,6 @@ document.addEventListener('DOMContentLoaded', function () {
         imageObserver.observe(img);
     });
 });
-
-
 
 document.querySelector(".contact-form").addEventListener("submit", function (e) {
     e.preventDefault();
